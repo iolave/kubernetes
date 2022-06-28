@@ -30,3 +30,14 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+
+### Adding workers
+**On worker**
+```
+kubeadm join [MASTER_API_SERVER] --token [TOKEN] --discovery-token-ca-cert-hash [HASH]
+```
+
+**On master**
+```
+kubectl label node [NODE NAME] node-role.kubernetes.io/worker=worker
+```
