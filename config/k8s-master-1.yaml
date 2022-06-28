@@ -1,0 +1,26 @@
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: InitConfiguration
+localAPIEndpoint:
+  advertiseAddress: 192.168.0.102
+  bindPort: 6443
+---
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: ClusterConfiguration
+controlPlaneEndpoint: 192.168.0.102:6443
+apiServer:
+  certSANs:
+    - k8s-worker-1
+    - "192.168.0.102"
+    - "192.168.0.103"
+etcd:
+  local:
+    serverCertSANs:
+    - k8s-master-1
+    - k8s-worker-1
+    - "192.168.0.102"
+    - "192.168.0.103"
+    peerCertSANs:
+    - k8s-master-1
+    - k8s-worker-1
+    - "192.168.0.102"
+    - "192.168.0.103"
