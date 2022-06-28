@@ -7,6 +7,7 @@ controlPlane:
 discovery:
   bootstrapToken:
     token: "tcoxy9.ukgb9m9kh0wv8eil"
-    caCertHashes: ["sha256:416afe7e5f68ed22e62b5634d22a842e7247470b20493d9771b3815c06f23173"]
+    caCertHashes: 
+    - "sha256:416afe7e5f68ed22e62b5634d22a842e7247470b20493d9771b3815c06f23173"
     apiServerEndpoint: "192.168.0.102:6443"
 
